@@ -740,7 +740,7 @@ find_be_kernels() {
     local ext pfx lbl i
     # Use a mess of loops instead better brace expansions to control priorities
     for ext in {.img,""}{"",.{gz,bz2,xz,lzma,lz4,lzo,zstd}}; do
-      for pfx in initramfs initrd; do
+      for pfx in initramfs initrd booster; do
         for lbl in "${labels[@]}"; do
           for i in "${pfx}-${lbl}${ext}" "${pfx}${ext}-${lbl}"; do
             if [ -e "${mnt}/boot/${i}" ]; then
